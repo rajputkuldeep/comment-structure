@@ -12,6 +12,7 @@ module.exports = {
       res.json({ message: "User created successfully !!" });
     });
   },
+
   sendFriendReq: (req, res) => {
     const reqParam = req.body;
     User.findOne({ _id: Mongoose.Types.ObjectId(reqParam.reqId) }).then(
