@@ -8,6 +8,7 @@ const system = require("systeminformation");
 
 module.exports = {
   signup: (req, res) => {
+    console.log(req, "reqqqqqq>>>>>>>");
     User.create(req.body).then((data) => {
       res.json({ message: "User created successfully !!" });
     });
