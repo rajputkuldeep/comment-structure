@@ -1,52 +1,63 @@
 const express = require('express'),
 router = express.Router();
 const { createPost } = require('../controller/postcontroller')
-const { commentList, createComment } = require('../controller/commentController')
-const { signup, sendFriendReq, acceptRejectReq, userInfo, createCustomer, createSource, addCard, listAllcard, createPayment, weekfilter } = require('../controller/userController');
-const { route } = require('express/lib/application');
+const {
+  commentList,
+  createComment,
+  getNestedComment,
+  indexTask,
+} = require("../controller/commentController");
+const {
+  systeminfo,
+  signup,
+  sendFriendReq,
+  acceptRejectReq,
+  userInfo,
+  createCustomer,
+  createSource,
+  addCard,
+  listAllcard,
+  createPayment,
+  weekfilter,
+} = require("../controller/userController");
+const { route } = require("express/lib/application");
 
 //post
-router.post('/post', createPost)
-
+router.post("/post", createPost);
 
 //comment
 
-router.post('/comment', createComment)
-router.get('/comment/:id', commentList)
+router.post("/comment", createComment);
+router.get("/comment", commentList);
+router.get("/nestedComment", getNestedComment);
 
 //User
 
-router.post('/user', signup)
-router.post('/send-req', sendFriendReq)
-router.post('/accept-reject', acceptRejectReq)
+router.post("/user", signup);
+router.post("/send-req", sendFriendReq);
+router.post("/accept-reject", acceptRejectReq);
 
-
-router.get('/get', userInfo);
-
-
+router.get("/get", userInfo);
 
 //stripe
 
-router.post('/create',createCustomer)
+router.post("/create", createCustomer);
 
 //card
 
-router.post('/card',addCard)
-router.get('/card', listAllcard)
+router.post("/card", addCard);
+router.get("/card", listAllcard);
 
 //source
 
 //router.post('/source' ,createSource)
 
+//payment Intent
 
-//payment Intent 
+router.post("/payment", createPayment);
 
-router.post('/payment' , createPayment)
+router.get("/json", weekfilter);
 
-
-
-
-
-router.get('/json', weekfilter)
+router.get("/system", systeminfo);
 
 module.exports = router;

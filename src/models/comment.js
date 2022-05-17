@@ -1,30 +1,28 @@
 const Mongoose = require('mongoose');
 
-const schema = new Mongoose.Schema({
+const schema = new Mongoose.Schema(
+  {
     post_id: {
       type: Mongoose.Schema.Types.ObjectId,
       ref: "Post",
-      required: true
+      required: true,
     },
-    content: {
+    comment: {
       type: String,
-    },
-    stage: {
-      type: Number,
-      isIn: [1, 2, 3]
+      required: true,
     },
     comment_id: {
       type: Mongoose.Schema.Types.ObjectId,
-      // ref: "Comment",
-      required: false
+      required: false,
     },
-    nested_comment_id: {
+    user_id: {
       type: Mongoose.Schema.Types.ObjectId,
-      required: false
+      ref: "User",
     }
   },
   {
-    timestamps: true
-  });
+    timestamps: true,
+  }
+);
 
 module.exports = Mongoose.model('Comment', schema, 'comment');
