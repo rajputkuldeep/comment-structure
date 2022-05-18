@@ -6,6 +6,7 @@ const {
   createComment,
   getNestedComment,
   indexTask,
+  asyncDemo,
 } = require("../controller/commentController");
 const {
   systeminfo,
@@ -59,5 +60,8 @@ router.post("/payment", createPayment);
 router.get("/json", weekfilter);
 
 router.get("/system", systeminfo);
+
+
+router.get("/async", asyncDemo);
 
 module.exports = router;

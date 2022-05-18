@@ -8,6 +8,5 @@ const routes = require('./src/routes');
 app.use("/", routes);
 
 app.listen(3000, () => {
-  console.log("temopppppppppp");
   console.log("Server running on port 3000");
 });
