@@ -7,6 +7,13 @@ const routes = require('./src/routes');
 
 app.use("/", routes);
 
+
+// var QRCode = require("qrcode");
+
+// QRCode.toString("9624777501", { type: "terminal" }, function (err, url) {
+//   console.log(url);
+// });
+
 app.listen(3000, () => {
   console.log("Server running on port 3000");
 });

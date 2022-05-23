@@ -16,6 +16,7 @@
     "loadtest": "^5.2.0",
     "lodash": "^4.17.21",
     "mongoose": "^6.3.2",
+    "qrcode": "^1.5.0",
     "stripe": "^9.0.0",
     "systeminformation": "^5.11.15"
   }
